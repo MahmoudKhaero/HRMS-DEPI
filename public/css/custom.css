@@ -1,0 +1,48 @@
+/* Hero Section */
+.hero-section {
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.hero-section .scroll-indicator {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scroll-indicator i {
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+}
+
+/* Bouncing Arrow */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Cards Hover Effect */
+.announcement-card:hover, .recruitment-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Modal Styling */
+.modal-content {
+    border-radius: 15px;
+}
+
+/* AOS Animations */
+[data-aos] {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+
