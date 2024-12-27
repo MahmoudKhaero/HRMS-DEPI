@@ -18,8 +18,6 @@ RUN chown -R www-data:www-data /var/www/html && chmod -R 775 /var/www/html/stora
 
 COPY .env .env
 RUN php artisan key:generate
-RUN php artisan migrate
-RUN php artisan serve
 
 EXPOSE 80
 
