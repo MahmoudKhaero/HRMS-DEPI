@@ -1,0 +1,36 @@
+version: '3.3'
+services: 
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_DATABASE: laravel
+      DB_USERNAME: root
+      DB_PASSWORD: root
+    ports:
+      - "8000:8000"  
+    depends_on:
+      - db
+    networks:
+      - private_network
+
+  db:
+    image: mysql:8.0
+    container_name: mysql_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+    networks:
+      - private_network
+
+networks:
+  private_network:
+    driver: bridge
